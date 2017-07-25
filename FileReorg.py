@@ -54,12 +54,16 @@ class FileReorg :
             else :
                 print "Directory exists : ", outDir
 
-
+    ###
+    # moveMiscFiles - class member which moves files other then tif files and moves them to the misc subdirectory
+    ###
     def moveMiscFiles (self) :
         outDir = os.path.normpath (self.mainSource + '/misc')
+        # make the misc directory if necessary
         if not os.path.exists (outDir) :
             os.makedirs (outDir)
             print "Making : ", outDir
+        # then move all files (not tifs) to misc directory
         for f in  self.allFiles :
 
             if f.endswith (".tif") :
@@ -70,13 +74,14 @@ class FileReorg :
             if os.path.isdir (infile) :
                 continue
             outfile = os.path.normpath(outDir+ '/' + f)
-            # replace shutil.copy with shutil.move to delete original 
+            # replace shutil.copy with shutil.move to delete original
             shutil.copy (infile, outfile)
 
 
     ###
     # moveFiles - class member which goes through the list of tif files, creating directories for D1s, D1w, etc... and then
-    #   copying or moving the original file to the correct directory with the .mccd suffix
+    #   copying or moving the original file to the correct directory with the .mccd suffix. Note that this method only copies or
+    #   moves tiff files
     ###
     def moveFiles (self) :
         numViews = 0
