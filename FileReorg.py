@@ -11,10 +11,7 @@ class FileReorg :
 
         # edit below to change input directory...
         #self.mainSource = os.path.normpath('c:/Users/gregf/Dropbox (UH Mineral Physics)/Hawaii_Data/oamph_gedrite/')
-        self.mainSource = os.path.normpath ('/Users/hg/workdir/python_rename/P5_copy')
-
-
-
+        self.mainSource = os.path.normpath ('M:/workdir/python_rename/P5_copy')
 
         # get the list of all tif files in the directory
         self.allFiles = os.listdir (self.mainSource)
