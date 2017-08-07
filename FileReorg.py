@@ -120,7 +120,7 @@ class FileReorg :
                 infile = os.path.normpath(self.mainSource + '/' + f)
 
                 #make the strings for the copy or move input and output files
-                newfile = "%s_%02d_%04d.mccd"%(self.dsetName, aTypeIndex, seqNumber)
+                newfile = "%s_%02d_%04d.mccd"%(self.dsetName, aTypeIndex + icryst*10, seqNumber)
                 outfile =  os.path.normpath(self.mainSource + '/' + cid + '/' + aType + '/' + newfile)
                 print "renaming : " + infile + "  \n\tto : " + outfile
 
